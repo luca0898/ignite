@@ -1,6 +1,6 @@
-import RepositoryList from './Components/RepositoryList'
+import { RepositoryList } from './Components/RepositoryList'
 import './styles/global.scss'
 
-export default function App() {
+export function App() {
     return <RepositoryList />
 }
