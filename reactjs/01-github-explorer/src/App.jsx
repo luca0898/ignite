@@ -1,8 +1,7 @@
-export function App() {
+import './styles/global.css'
 
-    throw new Error("deu ruim")
+const App = () => (
+    <h1>Hello World</h1>
+)
 
-    return (
-        <h1>Hello World</h1>
-    )
-}
+export default App;
