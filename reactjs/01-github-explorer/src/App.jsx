@@ -1,7 +1,6 @@
+import RepositoryList from './Components/RepositoryList'
 import './styles/global.scss'
 
-const App = () => (
-    <h1>Hello World</h1>
-)
-
-export default App;
+export default function App() {
+    return <RepositoryList />
+}
