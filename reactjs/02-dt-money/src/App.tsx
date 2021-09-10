@@ -5,8 +5,6 @@ export function App() {
     <div className="App">
       <GlobalStyle />
       <h1>Hello world</h1>
-
-      <button>Salvar</button>
     </div>
   );
 }
