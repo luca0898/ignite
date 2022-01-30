@@ -1,13 +1,12 @@
-interface Course {
+interface ICourse {
     name: string;
     duration: number;
     educator: string;
 }
 
 class CreateCourseService {
-
-    execute({ name, duration, educator }: Course) {
-        console.log(name, duration, educator)
+    execute({ name, duration, educator }: ICourse) {
+        console.log(name, duration, educator);
     }
 }
 
