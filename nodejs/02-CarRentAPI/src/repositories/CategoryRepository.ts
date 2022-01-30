@@ -1,18 +1,14 @@
 import Category from "../models/Category";
+import { ICategoryRepository, ICreateCategoryDTO } from "./ICategoryRepository";
 
-interface ICreateCategoryDTO {
-    name: string;
-    description: string;
-}
-
-export class CategoryRepository {
+class CategoryRepository implements ICategoryRepository {
     private categories: Category[];
 
     constructor() {
         this.categories = [];
     }
 
-    create({ name, description }: ICreateCategoryDTO): void {
+    create({ name, description }: ICreateCategoryDTO): Category {
         const category: Category = new Category();
 
         Object.assign(category, {
@@ -22,6 +18,8 @@ export class CategoryRepository {
         });
 
         this.categories.push(category);
+
+        return category;
     }
 
     list(): Category[] {
@@ -32,3 +30,5 @@ export class CategoryRepository {
         return this.categories.find((category) => category.name === name);
     }
 }
+
+export { CategoryRepository };
