@@ -9,17 +9,17 @@ class CategoryRepository implements ICategoryRepository {
     }
 
     create({ name, description }: ICreateCategoryDTO): Category {
-        const category: Category = new Category();
+        const entity = new Category();
 
-        Object.assign(category, {
+        Object.assign(entity, {
             name,
             description,
             created_at: new Date(),
         });
 
-        this.categories.push(category);
+        this.categories.push(entity);
 
-        return category;
+        return entity;
     }
 
     list(): Category[] {
@@ -27,7 +27,7 @@ class CategoryRepository implements ICategoryRepository {
     }
 
     findByName(name: string): Category {
-        return this.categories.find((category) => category.name === name);
+        return this.categories.find((entity) => entity.name === name);
     }
 }
 
