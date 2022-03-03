@@ -7,7 +7,6 @@ interface IImportCategory {
     description: string;
 }
 
-
 class ImportCategoryUseCase {
 
     constructor(private categoryRepository: ICategoryRepository) { }
@@ -30,6 +29,7 @@ class ImportCategoryUseCase {
                     })
                 })
                 .on("end", () => {
+                    fs.promises.unlink(file.path)
                     resolve(categories)
                 })
                 .on("error", reject)
@@ -39,7 +39,6 @@ class ImportCategoryUseCase {
 
     async execute(file: Express.Multer.File) {
         const categories = await this.loadCategories(file);
-        console.log(categories)
 
         categories.map(async ({ name, description }) => {
             const existingCategory = this.categoryRepository.findByName(name)
